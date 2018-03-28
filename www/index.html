@@ -1,0 +1,178 @@
+﻿<html>
+<head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <!-- Good default declaration:
+        * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+        * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+            * Enable inline JS: add 'unsafe-inline' to default-src
+            * Enable eval(): add 'unsafe-eval' to default-src
+    -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *">-->
+    <!-- Allow everything but only from the same origin and foo.com -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' foo.com">-->
+    <!-- This policy allows everything (eg CSS, AJAX, object, frame, media, etc) except that
+        * CSS only from the same origin and inline styles,
+        * scripts only from the same origin and inline styles, and eval()
+    -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">-->
+    <!-- Allows XHRs only over HTTPS on the same domain. -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' https:" />-->
+    <!-- Allow iframe to https://cordova.apache.org/ -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://cordova.apache.org">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- Your app title -->
+    <title>My App</title>
+    <!-- Path to Framework7 iOS CSS theme styles-->
+    <link rel="stylesheet" href="core/dist/css/framework7.material.css">
+    <!-- Path to Framework7 iOS related color styles -->
+    <link rel="stylesheet" href="core/dist/css/framework7.material.colors.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="core/dist/css/my-app.css">
+    <!--<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">-->
+    <link href="core/iconos/css/ionicons.css" rel="stylesheet" />
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova_plugins.js"></script>
+
+    <script>
+        document.addEventListener("deviceready", onDeviceReady, false);
+        var gaPlugin;
+
+        function onDeviceReady() {
+            if (device.platform == 'Android') {
+                StatusBar.backgroundColorByHexString("#DA8302");
+            }
+            if (navigator.notification) { // Override default HTML alert with native dialog
+                window.alert = function (message) {
+                    navigator.notification.alert(
+                        message,    // message
+                        null,       // callback
+                        "MyApp", // title
+                        'Aceptar'        // buttonName
+                    );
+                };
+            }
+            //var fbLoginSuccess = function (userData) {
+            //    alert("UserInfo: " + JSON.stringify(userData));
+            //}
+
+            //facebookConnectPlugin.login(["public_profile"],
+            //    fbLoginSuccess,
+            //    function (error) { alert("" + error) }
+            //);
+
+            // $$('#btn1').on('click', function (e) {
+            //alert("hola");
+            //});
+
+
+            //$$('input[type="checkbox"], input[type="radio"]').on('click', function () {
+            //    alert("checkbox");
+            //    console.log($(this).attr('id'));
+            //    alert("checkbox");
+            //})
+        }
+    </script>
+
+</head>
+<body class="theme-orange">
+    <!-- Status bar overlay for full screen mode (PhoneGap) -->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div class="panel panel-left panel-reveal">
+        <div class="content-block-title" id="txtNombrePanel" style="font-size:x-large;">Full Layout</div>
+        <!--<div class="list-block">-->
+        <!--<div class="content-block">
+            <div class="row">
+                <div class="col-33 button" id="btAccount" style="text-align: center; padding: 5px; height:60px;">
+                    <i style='font-size:xx-large;' class="icon ion-person color-teal"></i><br />
+                    <div style='font-size:small;'>Mi Cuenta</div>
+                </div>
+
+                <div class="col-33 button" id="btnOptions" style="text-align: center; padding: 5px; height: 60px; ">
+                    <i style='font-size:xx-large;' class="icon ion-gear-b color-teal"></i><br />
+                    <div style='font-size:small;'>
+                        Opciones
+                    </div>
+                </div>
+
+                <div class="col-33 button" id="btcCloseSession" style="text-align: center; padding: 5px; height: 60px; ">
+                    <i style='font-size:xx-large;' class="icon ion-log-out color-teal"></i><br />
+                    <div style='font-size:small;'>
+                        Salir
+                    </div>
+                </div>
+            </div>
+        </div>-->
+        <!--<ul>
+            <li>
+                <a href='#' class='item-link item-content'>
+                    <div class="item-media"><i style='font-size:x-large;' class="icon ion-android-person color-teal"></i></div>
+                    <div class='item-inner'>
+                        <div class='item-title'>Mi Cuenta</div>
+                        <div class='item-after'>Label</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href='#' class='item-link item-content'>
+                    <div class="item-media"><i style='font-size:x-large;' class="icon ion-android-settings color-teal"></i></div>
+                    <div class='item-inner'>
+                        <div class='item-title'>Opciones</div>
+                        <div class='item-after'>Label</div>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href='#' class='item-link item-content'>
+                    <div class="item-media"><i style='font-size:x-large;' class="icon ion-android-cancel color-teal"></i></div>
+                    <div class='item-inner'>
+                        <div class='item-title'>Cerrar Sesión</div>
+                      <div class='item-after'>Label</div>
+                    </div>
+                </a>
+            </li>
+        </ul>-->
+        <!--</div>-->
+        <div class="content-block-title">MIS LISTAS</div>
+        <div class="list-block">
+            <div id="lstMisListas"></div>
+            <a href='addList.html' id='addLista' class='button button-fill color-orange'>Agregar</a>
+            <div class='list-block-label' style='text-align: right;'>V 1.0.0</div>
+        </div>
+
+
+    </div>
+    <!-- Views -->
+    <div class="views">
+        <!-- Your main view, should have "view-main" class -->
+        <div class="view view-main">
+            <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+            <div class="pages navbar-fixed">
+
+
+                <!-- Page, "data-page" contains page name -->
+                <div data-page="index" class="page">
+                    <div class="page-content login-screen-content">
+                      
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="core/dist/js/framework7.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="core/dist/js/my-app.js"></script>
+
+</body>
+</html> 

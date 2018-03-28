@@ -1,0 +1,118 @@
+﻿<html>
+<head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <!-- Good default declaration:
+        * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+        * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+        * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+            * Enable inline JS: add 'unsafe-inline' to default-src
+            * Enable eval(): add 'unsafe-eval' to default-src
+    -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *">-->
+    <!-- Allow everything but only from the same origin and foo.com -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' foo.com">-->
+    <!-- This policy allows everything (eg CSS, AJAX, object, frame, media, etc) except that
+        * CSS only from the same origin and inline styles,
+        * scripts only from the same origin and inline styles, and eval()
+    -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">-->
+    <!-- Allows XHRs only over HTTPS on the same domain. -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' https:" />-->
+    <!-- Allow iframe to https://cordova.apache.org/ -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self'; frame-src 'self' https://cordova.apache.org">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+      
+
+</head>
+<body class="theme-orange">
+    <!-- Status bar overlay for full screen mode (PhoneGap) -->
+    
+   
+    <!-- Views -->
+    <div class="views">
+        <!-- Your main view, should have "view-main" class -->
+        <div class="view view-main">
+            <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
+            <div class="pages navbar-fixed">
+
+
+                <!-- Page, "data-page" contains page name -->
+                <div data-page="login" class="page">
+                    <div class="page-content login-screen-content">
+                        <div class="login-screen-title" style="color:#FF9800;"><img  src="ban.jpg"/><!--go Shop !!--> </div>
+                        <h1 id="fb-welcome"></h1>
+                        <div class="content-block-title">Por favor inicie sesión</div>
+                        <div class="content-block">
+                            <div class="list-block inputs-list">
+                                <ul>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"><i class="icon ion-android-person" style="font-size:32px;"></i></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">E-Mail</div>
+                                                <div class="item-input item-input-field">
+                                                    <input type="text" name="txtUsername" id="txtUsername" value="" placeholder="Tu Correo Electronico" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"><i class="icon ion-android-lock" style="font-size:32px;"></i></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">Contraseña</div>
+                                                <div class="item-input item-input-field">
+                                                    <input type="password" name="txtPassword" id="txtPassword" value="" placeholder="Tu Contraseña" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">Recordar Cuenta</div>
+                                                <div class="item-input">
+                                                    <label class="label-switch">
+                                                        <input type="checkbox" id="recordarCh">
+                                                        <div class="checkbox"></div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+
+                                            <div class="item-inner">
+                                                <input id="cmdLogin" type="submit" value="Entrar" class="button button-fill button-raised" />
+                                            </div>
+                                        </div>
+
+                                    </li>
+
+
+                                </ul>
+
+                            </div>
+                            <div class="list-block-label">
+                                <p>¿No tienes cuenta?</p>
+                                <p><a href="registro.html" id="registroUser" class="item-link">Registrate Aquí</a></p>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+  
+
+</body>
+</html> 
