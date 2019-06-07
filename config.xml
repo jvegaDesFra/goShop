@@ -8,7 +8,7 @@
         José Juan Vega Alvarado
     </author>
     <gap:plugin name="cordova-plugin-datepicker" source="npm" />
-    <preference name="phonegap-version" value="cli-6.0.0" />
+    <preference name="phonegap-version" value="cli-8.0.0" />
     <gap:plugin name="cordova-plugin-statusbar" source="npm" />
     <gap:plugin name="cordova-plugin-whitelist" source="npm" />
     <allow-navigation href="http://*/*" />
